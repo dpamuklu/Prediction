@@ -1,0 +1,23 @@
+{
+  "name": "prediction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "prediction"
+  },
+  "keywords": [
+    "prediction"
+  ],
+  "author": "Dogan Pamuklu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0",
+    "unirest": "^0.5.1"
+  }
+}
