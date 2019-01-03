@@ -1,0 +1,34 @@
+<% include ./partials/header.ejs %>
+
+    <!-- Page Header -->
+    <header class="masthead">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1> <%= post.title %> </h1>  
+                <span class="meta">on <%= post.created.toDateString() %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+		    <p><%- post.content %></p>
+          </div>
+		  <% if(currentUser){ %>
+			<form action="/posts/<%= post._id%>/edit" method="GET" name="sentMessage" id="contactForm" novalidate>
+		      <button type="submit" type=" "class="btn btn-primary" id="sendMessageButton">Edit</button>
+			</form>	
+		  <% } %> 	
+		</div>
+      </div>
+    </article>
+
+<% include ./partials/footer.ejs %>
