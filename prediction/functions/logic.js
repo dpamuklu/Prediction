@@ -14,6 +14,9 @@ async function update(res) {
 
  if ( result.prediction.length === 0 ) {
 
+   // Warning for Api request
+   console.log('DIKKAT!');
+   
    const response = await get_api_response(predict_date);
 
    await save_response_db(response, predict_date)

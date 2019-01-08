@@ -4,9 +4,11 @@
   "description": "FPL ",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "request": "^2.88.0",
+    "web-push": "^3.3.3",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {},
