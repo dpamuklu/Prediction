@@ -6,10 +6,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.onload = refresh_page();
 
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#games tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
 function refresh_page() {
   setTimeout(function () {
       location.reload()
-  }, 10000);
+  }, 100000);
 };
 
 function modify_actual_time(){
