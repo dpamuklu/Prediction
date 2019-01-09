@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
       <!-- Jquery -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <!-- Script Page Load -->      
+      <!-- Script Page Load -->
       <script type="text/javascript" src ="functions/html_manipulator.js"></script>
       <title>Predictions</title>
    </head>
@@ -37,8 +37,8 @@
          </thead>
          <tbody id="games">
             <script>
-               var result = <%- JSON.stringify(result) %>;
-               add_games(result);
+              var result = <%- JSON.stringify(result) %>;
+              add_games(result);
             </script>
          </tbody>
       </table>

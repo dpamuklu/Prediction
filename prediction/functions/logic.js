@@ -1,6 +1,5 @@
 var mongoose     = require("mongoose"),
     unirest      = require("unirest"),
-    key          = require("../config_key"),
     models       = require("../models/prediction"),
     result       = { prediction:"", predictionDetails:"" };
 
@@ -14,9 +13,6 @@ async function update(res) {
 
  if ( result.prediction.length === 0 ) {
 
-   // Warning for Api request
-   console.log('DIKKAT!');
-   
    const response = await get_api_response(predict_date);
 
    await save_response_db(response, predict_date)
@@ -24,7 +20,7 @@ async function update(res) {
    result.prediction = await get_prediction_stats(predict_date);
  }
 
- res.render("index", {result, predict_date} );
+ res.render("index", {result} );
 
 };
 
@@ -55,7 +51,7 @@ async function get_api_response(iso_date){
     prediction_url = "https://football-prediction-api.p.rapidapi.com/api/v2/predictions?iso_date=" + iso_date;
 
     unirest.get(prediction_url)
-        .header("X-RapidAPI-Key", key.x_rapid_api_key)
+        .header("X-RapidAPI-Key", process.env.X_RAPID_API_KEY)
         .end(function(result) {
             resolve(result);
         });
@@ -86,7 +82,7 @@ async function save_response_db(data, predict_date){
 
 async function connect_db(){
 
-  await mongoose.connect("mongodb://localhost/prediction", {
+  await mongoose.connect(process.env.DATABASE_URL, {
       useCreateIndex: true,
       useNewUrlParser: true
   });
