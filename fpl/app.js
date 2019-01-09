@@ -79,7 +79,7 @@ app.post("/subscribe", (req, res) => {
   res.status(201).json({});
 
   // Create payload
-  const payload = JSON.stringify({ title: "Push Testtt", publicVapidKey:"1" });
+  const payload = JSON.stringify({ title: "Silivri Premier League" });
 
   // Pass object into sendNotification
   webpush

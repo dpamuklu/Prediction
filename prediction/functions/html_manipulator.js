@@ -18,7 +18,7 @@ $(document).ready(function(){
 function refresh_page() {
   setTimeout(function () {
       location.reload()
-  }, 100000);
+  }, 1000000);
 };
 
 function modify_actual_time(){
