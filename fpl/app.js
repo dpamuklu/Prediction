@@ -1,21 +1,21 @@
 var express        = require('express'),
     app            = express(),
     request        = require("request"),
-    bodyParser     = require("body-parser");
-    webpush        = require("web-push");
+    bodyParser     = require("body-parser"),
+    webpush        = require("web-push"),
+    dotenv         = require("dotenv"),
     usd_price_tl   = 1;
+
+dotenv.config();
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 
-const publicVapidKey =  "BCjkG-tahvvnbo_vjsdqNKbs7_cPcmg2BmGVDaYaUguXfaRuys8h2JyqaB-4WtEkAyxiK6QsuRPGreRC_7GZgi0"
-const privateVapidKey = "y8mm1h1RFl8WsBzT29oxBEDyd54AqsBEbq6alN1I-1A";
-
 webpush.setVapidDetails(
   "mailto:test@test.com",
-  publicVapidKey,
-  privateVapidKey,
+  process.env.PUBLICVAPIDKEY,
+  process.env.PRIVATEVAPIDKEY,
 );
 
 app.get('/', (req, res) => {
@@ -85,11 +85,12 @@ app.post("/subscribe", (req, res) => {
   webpush
     .sendNotification(subscription, payload)
     .catch(err => console.error(err));
-});
+  });
 
 function round(value, decimals) {
     return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals).toFixed(decimals);
 };
 
-app.listen(process.env.PORT || 3000, function() {
-console.log("SERVER IS RUNNING")});
+app.listen(process.env.PORT , function() {
+  console.log("SERVER IS RUNNING")
+});
