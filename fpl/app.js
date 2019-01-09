@@ -91,5 +91,5 @@ function round(value, decimals) {
     return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals).toFixed(decimals);
 };
 
-app.listen(process.env.PORT, function() {
+app.listen(process.env.PORT || 3000, function() {
 console.log("SERVER IS RUNNING")});
