@@ -29,7 +29,7 @@ async function getprediction(predict_date) {
   await connect_db();
 
   result.prediction        = await get_prediction_stats(predict_date);
-  result.predictionDetails = await get_prediction_detail_stats(predict_date);
+  // result.predictionDetails = await get_prediction_detail_stats(predict_date);
 
 };
 

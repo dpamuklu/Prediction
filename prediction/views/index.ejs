@@ -37,8 +37,7 @@
          </thead>
          <tbody id="games">
             <script>
-              var result = <%- JSON.stringify(result) %>;
-              add_games(result);
+              add_games(<%- JSON.stringify(result) %>);
             </script>
          </tbody>
       </table>
