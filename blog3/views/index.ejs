@@ -1,0 +1,44 @@
+<% include ./partials/header.ejs %>
+
+    <!-- Page Header -->
+    <header class="masthead">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Dogan Pamuklu</h1>
+              <span class="subheading">Test subheading</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+		<% blogs.forEach(function(blog){ %>
+          <div class="post-preview">
+            <a href="/posts/<%= blog._id %>">
+              <h2 class="post-title">
+                <%= blog.title%>
+              </h2>
+              <h3 class="post-subtitle">
+              </h3>
+            </a>
+            <p class="post-meta">
+              <a href="#"></a>
+              on <%= blog.created.toDateString() %></p>
+          </div>
+          <hr>
+		  <% }) %>
+		  <div class="clearfix">
+            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<% include ./partials/footer.ejs %>
